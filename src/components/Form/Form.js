@@ -7,42 +7,52 @@ export default class Form extends Component {
         super(props);
 
         this.state = {
-          image_url: '',
-          productName: '',
+          img: '',
+          name: '',
           price: 0
         }
     }
 
+
   componentDidMount(){
       axios.get('api/items').then(res => {
           this.setState({
-            image_url: '',
-            productName: '',
-            price: 0
+            items: res.data
           })
       })
   }
 
   postItem() {
       const { input } = this.state;
-      axios.post('/api/items', { items: input}).then(res => {
+      axios.post('/api/items', { img, name }).then(res => {
           this.setState({
-            image_url: this.state.image_url,
-            productName: this.state.productName,
-            price: 0
+            
           })
       })
   }
 
-  onEdit = item => {
-      this.setState({
-          input: item
-      })
+  deleteItem = id => {
+    axios.delete(`/api/items/${id}`).then(res => {
+        this.setState({
+            
+        })
+    })
   }
 
-  resetState = () => {
-    this.setState(this.state);
- }
+  updateItem = id => {
+      const
+  }
+
+  updateItem = id => {
+      const { img, name } = this.state;
+      axios.put(`/api/items/${id}`, {img, name}).then(res => {
+          this.setState ({
+              img: '',
+              productName: '',
+              editing: false
+          })
+      })
+  }
 
     render(){
         return(
