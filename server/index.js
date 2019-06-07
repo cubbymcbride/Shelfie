@@ -14,5 +14,10 @@ massive(CONNECTION_STRING).then(db => {
     console.log('WE LIT');
 });
 
+app.get('/api/items/:id', ctrl.getAllItems)
+app.get('/api/items', ctrl.getItem)
+app.post('/api/items', ctrl.createItem)
+app.delete('/api/items/:id', ctrl.deleteItem)
+app.put('/api/items/:id', ctrl.updateItem)
 
 app.listen(SERVER_PORT, () => console.log(`Listening boi on ${SERVER_PORT}`));

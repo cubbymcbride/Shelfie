@@ -1,0 +1,12 @@
+.Logo {
+    height: 10vh;
+    width: 100%;
+    background-color: #ab2a19;
+    
+}
+
+.Name {
+    float: left;
+    padding-left: 50px;
+    color: white;
+}
