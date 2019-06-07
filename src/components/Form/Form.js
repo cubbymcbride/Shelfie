@@ -23,7 +23,7 @@ export default class Form extends Component {
   }
 
   postItem() {
-      const { input } = this.state;
+      const { img, name } = this.state;
       axios.post('/api/items', { img, name }).then(res => {
           this.setState({
             
@@ -37,10 +37,6 @@ export default class Form extends Component {
             
         })
     })
-  }
-
-  updateItem = id => {
-      const
   }
 
   updateItem = id => {
